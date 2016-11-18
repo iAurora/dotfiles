@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Make vim the default editor.
+export EDITOR='vim';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+
+export NVM_DIR="/Users/valka/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Homebrew access token (to avoid API rate limit)
+export HOMEBREW_GITHUB_API_TOKEN="62900166dadd310f25c01a9570ef433d10d7fc68"
