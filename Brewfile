@@ -1,4 +1,5 @@
 tap 'caskroom/cask'
+tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'homebrew/completions'
 tap 'homebrew/core'
@@ -8,7 +9,7 @@ tap 'homebrew/dupes'
 brew 'coreutils'
 brew 'findutils'
 brew 'moreutils'
-brew 'gnu-sed', args: ['--with-default-names']
+brew 'gnu-sed'
 brew 'bash'
 brew 'bash-completion'
 brew 'ffmpeg'
@@ -33,10 +34,9 @@ brew 'terminal-notifier'
 brew 'tmux'
 brew 'tree'
 brew 'unar'
-brew 'vim', args: [--with-override-system-vi]
-brew 'visual-studio-code'
+brew 'vim'
 brew 'webkit2png'
-brew 'wget', args: [--with-iri]
+brew 'wget'
 # brew 'yadm'
 brew 'youtube-dl'
 brew 'z'
@@ -60,6 +60,7 @@ cask 'alfred'
 cask 'anki'
 cask 'appcleaner'
 cask 'bettertouchtool'
+cask 'dash2'
 cask 'dropbox'
 cask 'google-chrome'
 cask 'handbrake'
@@ -75,6 +76,7 @@ cask 'spotify'
 cask 'textbar'
 cask 'toggldesktop'
 cask 'transmission'
+cask 'visual-studio-code'
 cask 'vlc'
 cask 'xld'
 
@@ -89,5 +91,4 @@ mas 'The Unarchiver', id: 425424353
 mas 'KakaoTalk', id: 869223134
 mas 'Noizio', id: 928871589
 mas 'MiniPlay', id: 936243210
-mas 'Dash', id: 458034879
 mas 'Shazam', id: 897118787

@@ -5,6 +5,9 @@ sudo scutil --set ComputerName $COMPUTERNAME
 sudo scutil --set HostName $HOSTNAME
 sudo scutil --set LocalHostName $COMPUTERNAME
 
+# Fix mouse scroll wheel acceleration
+defaults write .GlobalPreferences com.apple.scrollwheel.scaling 0
+
 # Menu bar: hide remaining battery time (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "NO"
@@ -224,42 +227,32 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 
 ##### Dock #####
 
-# Enable highlight hover effect for the grid view of a stack (Dock)
-defaults write com.apple.dock mouse-over-hilite-stack -bool true
-
-# Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
-
-# Change minimize/maximize window effect
-defaults write com.apple.dock mineffect -string "scale"
-
-# Minimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool true
-
-# Enable spring loading for all Dock items
-defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
-
-# Show indicator lights for open applications in the Dock
-defaults write com.apple.dock show-process-indicators -bool true
-
 # Wipe all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
 
 # Show only open applications in the Dock
 defaults write com.apple.dock static-only -bool true
 
+# Set the icon size of Dock items to 48 pixels
+defaults write com.apple.dock tilesize -int 48
+
+# Change minimize/maximize window effect
+defaults write com.apple.dock mineffect -string "scale"
+
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
-
-# Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
-
-# Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
-
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
+
+# Remove the animation when hiding/showing the Dock
+# defaults write com.apple.dock autohide-time-modifier -float 0
+
+# Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Move Dock to the left of the screen
+defaults write com.apple.dock 'orientation' -string 'left'
 
 
 

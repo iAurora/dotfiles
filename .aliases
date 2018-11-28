@@ -9,18 +9,24 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias drb="cd ~/Dropbox"
+alias drb=" cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias codef="cd ~/Code"
+alias devf="cd ~/Developer"
 alias desf="cd ~/Design"
-alias cloudd="cd '/Users/$USER/Library/Mobile Documents/com~apple~CloudDocs/'"
+alias cloudd='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 alias g="git"
 alias h="history"
+alias dev="npm run dev"
+alias build="npm run build"
 
 # Other
 alias wakemini="wakeonlan C4:2C:03:0B:92:EE"
 alias ytdl="youtube-dl"
+alias ytdlp="youtube-dl -i -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
+alias gkoff="sudo spctl --master-disable"
+alias gkon="sudo spctl --master-enable"
+
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -104,3 +110,12 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Flush DNS cache
+alias flushdns="sudo killall -HUP mDNSResponder"
+
+# VK contest
+alias dupes="awk 'NR % 4 == 1' list.txt > clist.txt && sort clist.txt | uniq -c | sort -nr > dupes.txt"
+alias final="awk '{print NR,\$0}' clist.txt > final.txt"
+
+
