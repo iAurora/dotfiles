@@ -1,0 +1,337 @@
+# https://github.com/nikitabobko/AeroSpace
+
+# --- OPTIONS ------------------------------------------- #
+
+after-login-command = []
+# Assign workspaces to secondary monitor on startup but keep them movable
+after-startup-command = [
+  'workspace A', 'move-workspace-to-monitor --wrap-around next', 'workspace-back-and-forth',
+  'workspace S', 'move-workspace-to-monitor --wrap-around next', 'workspace-back-and-forth',
+  'workspace D', 'move-workspace-to-monitor --wrap-around next', 'workspace-back-and-forth', 
+  'workspace F', 'move-workspace-to-monitor --wrap-around next', 'workspace-back-and-forth',
+  'workspace G', 'move-workspace-to-monitor --wrap-around next', 'workspace-back-and-forth'
+]
+start-at-login = true
+
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = "move-mouse window-lazy-center"
+
+accordion-padding = 30
+
+[gaps]
+inner.horizontal = 6
+inner.vertical =   6
+outer.left =       6
+outer.bottom =     6
+outer.top =        6
+outer.right =      6
+
+# --- BINDINGS ------------------------------------------ #
+
+# *** Mode: main *** #
+
+[mode.main.binding]
+
+alt-ctrl-cmd-slash = 'layout tiles horizontal vertical'
+alt-ctrl-cmd-comma = 'layout accordion horizontal vertical'
+
+alt-ctrl-cmd-h = 'focus left'
+alt-ctrl-cmd-j = 'focus down'
+alt-ctrl-cmd-k = 'focus up'
+alt-ctrl-cmd-l = 'focus right'
+
+alt-ctrl-cmd-shift-h = 'move left'
+alt-ctrl-cmd-shift-j = 'move down'
+alt-ctrl-cmd-shift-k = 'move up'
+alt-ctrl-cmd-shift-l = 'move right'
+
+alt-ctrl-cmd-1 = 'workspace 1'
+alt-ctrl-cmd-2 = 'workspace 2'
+alt-ctrl-cmd-3 = 'workspace 3'
+alt-ctrl-cmd-4 = 'workspace 4'
+alt-ctrl-cmd-5 = 'workspace 5'
+alt-ctrl-cmd-6 = 'workspace 6'
+alt-ctrl-cmd-7 = 'workspace 7'
+alt-ctrl-cmd-8 = 'workspace 8'
+alt-ctrl-cmd-9 = 'workspace 9'
+alt-ctrl-cmd-0 = 'workspace 10'
+alt-ctrl-cmd-a = 'workspace A'
+alt-ctrl-cmd-b = 'workspace B'
+alt-ctrl-cmd-c = 'workspace C'
+alt-ctrl-cmd-d = 'workspace D'
+alt-ctrl-cmd-e = 'workspace E'
+alt-ctrl-cmd-f = 'workspace F'
+alt-ctrl-cmd-g = 'workspace G'
+alt-ctrl-cmd-q = 'workspace Q'
+alt-ctrl-cmd-r = 'workspace R'
+alt-ctrl-cmd-s = 'workspace S'
+alt-ctrl-cmd-t = 'workspace T'
+alt-ctrl-cmd-v = 'workspace V'
+alt-ctrl-cmd-w = 'workspace W'
+alt-ctrl-cmd-x = 'workspace X'
+alt-ctrl-cmd-z = 'workspace Z'
+
+alt-ctrl-cmd-shift-1 = 'move-node-to-workspace 1'
+alt-ctrl-cmd-shift-2 = 'move-node-to-workspace 2'
+alt-ctrl-cmd-shift-3 = 'move-node-to-workspace 3'
+alt-ctrl-cmd-shift-4 = 'move-node-to-workspace 4'
+alt-ctrl-cmd-shift-5 = 'move-node-to-workspace 5'
+alt-ctrl-cmd-shift-6 = 'move-node-to-workspace 6'
+alt-ctrl-cmd-shift-7 = 'move-node-to-workspace 7'
+alt-ctrl-cmd-shift-8 = 'move-node-to-workspace 8'
+alt-ctrl-cmd-shift-9 = 'move-node-to-workspace 9'
+alt-ctrl-cmd-shift-0 = 'move-node-to-workspace 10'
+alt-ctrl-cmd-shift-a = 'move-node-to-workspace A'
+alt-ctrl-cmd-shift-b = 'move-node-to-workspace B'
+alt-ctrl-cmd-shift-c = 'move-node-to-workspace C'
+alt-ctrl-cmd-shift-d = 'move-node-to-workspace D'
+alt-ctrl-cmd-shift-e = 'move-node-to-workspace E'
+alt-ctrl-cmd-shift-f = 'move-node-to-workspace F'
+alt-ctrl-cmd-shift-g = 'move-node-to-workspace G'
+alt-ctrl-cmd-shift-q = 'move-node-to-workspace Q'
+alt-ctrl-cmd-shift-r = 'move-node-to-workspace R'
+alt-ctrl-cmd-shift-s = 'move-node-to-workspace S'
+alt-ctrl-cmd-shift-t = 'move-node-to-workspace T'
+alt-ctrl-cmd-shift-v = 'move-node-to-workspace V'
+alt-ctrl-cmd-shift-w = 'move-node-to-workspace W'
+alt-ctrl-cmd-shift-x = 'move-node-to-workspace X'
+alt-ctrl-cmd-shift-z = 'move-node-to-workspace Z'
+
+alt-ctrl-cmd-tab = 'workspace-back-and-forth'
+alt-ctrl-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+
+# *** SERVICE MODE *** #
+
+alt-ctrl-cmd-semicolon = 'mode service'
+
+[mode.service.binding]
+
+esc = ['mode main']
+r = ['reload-config', 'mode main']
+
+m = ['fullscreen', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+b = 'balance-sizes'
+
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+
+t = ['flatten-workspace-tree', 'mode main']
+
+alt-ctrl-cmd-shift-h = ['join-with left', 'mode main']
+alt-ctrl-cmd-shift-j = ['join-with down', 'mode main']
+alt-ctrl-cmd-shift-k = ['join-with up', 'mode main']
+alt-ctrl-cmd-shift-l = ['join-with right', 'mode main']
+
+# --- ASSIGNMENTS --------------------------------------- #
+
+# *** Monitor: main *** #
+
+# 1 - terminals
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'org.alacritty'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Terminal'
+run = "move-node-to-workspace 1"
+
+# 2 - browser
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = "move-node-to-workspace 2"
+
+# 3 - ...
+# 4 - ...
+# 5 - ...
+# 6 - ...
+# 7 - ...
+
+# 8 - processes
+
+[[on-window-detected]]
+if.app-id = 'fr.handbrake.HandBrake'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'org.m0k.transmission'
+run = 'move-node-to-workspace 8'
+
+# 9 - ...
+
+# Q - design
+
+# W - Writing
+
+[[on-window-detected]]
+if.app-id = 'pro.writer.mac'
+run = 'move-node-to-workspace W'
+
+# E - email
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = "move-node-to-workspace E"
+
+# R - music
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = "move-node-to-workspace Z"
+
+# T - Telegram
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = "move-node-to-workspace T"
+
+# Z - design
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Affinity Photo'
+run = "move-node-to-workspace Q"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Affinity Designer'
+run = "move-node-to-workspace Q"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Affinity Publisher'
+run = "move-node-to-workspace Q"
+
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = "move-node-to-workspace Q"
+
+# X - tasks
+
+[[on-window-detected]]
+if.app-id = 'com.culturedcode.ThingsMac'
+run = 'move-node-to-workspace X'
+
+# C - photos
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Capture One'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Photos'
+run = "move-node-to-workspace B"
+
+# V - video editing
+
+[[on-window-detected]]
+if.app-id = 'com.apple.FinalCut'
+run = 'move-node-to-workspace V'
+
+# B - books
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.calibre'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'zlibrary'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iBooksX'
+run = 'move-node-to-workspace C'
+
+# *** Monitor: secondary *** #
+
+# A - drafts
+
+[[on-window-detected]]
+if.app-id = 'com.agiletortoise.Drafts-OSX'
+run = 'move-node-to-workspace A'
+
+# S - documentation
+
+[[on-window-detected]]
+if.app-id = 'com.kagi.kagimacOS'
+run = "move-node-to-workspace S"
+
+# D - discord
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = "move-node-to-workspace D"
+
+# F - extras
+
+[[on-window-detected]]
+if.app-id = 'com.qobuz.desktop'
+run = ['layout tiling', 'move-node-to-workspace F']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Tomito'
+run = ['layout tiling', 'move-node-to-workspace F']
+
+# G - AI chats
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'ChatGPT'
+run = ['move-node-to-workspace G']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Perplexity'
+run = ['move-node-to-workspace G']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Alice'
+run = ['move-node-to-workspace G']
+
+# --- FLOATING ------------------------------------------ #
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.superultra.Homerow'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.colliderli.iina'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Scratchpad'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'AmneziaVPN'
+run = ['layout floating']
