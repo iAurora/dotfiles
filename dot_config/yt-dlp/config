@@ -1,0 +1,6 @@
+# download directory
+-o "~/Downloads/_video/%(title)s.%(ext)s"
+
+# write subtitles
+--write-subs
+--sub-langs "en,ru"
