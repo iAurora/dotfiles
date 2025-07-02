@@ -1,0 +1,39 @@
+# confirm before closing app
+confirm-close-surface = false
+
+# colors ---------------------------------------------------------------
+
+# match system dark mode
+theme = dark:melange-dark,light:melange-light
+
+# create or join existing tmux session on launch
+# command = /bin/zsh -c "tmux new -A -s base"
+
+# window ---------------------------------------------------------------
+
+window-padding-x = 10
+window-padding-y = 10
+
+# macOS specific
+macos-titlebar-style = hidden
+macos-option-as-alt = left
+
+# fonts ----------------------------------------------------------------
+
+# better cursive & more character but SF Mono fits macOS better
+# font-family = "IBM Plex Mono"
+# font-feature = "zero"
+
+font-family = "SF Mono"
+font-family-bold = "SF Mono Bold"
+font-family-italic = "SF Mono Regular Italic"
+font-family-bold-italic = "SF Mono Bold Italic"
+
+font-thicken = true
+font-size = 18
+adjust-cell-height = 15%
+
+# cursor ---------------------------------------------------------------
+
+adjust-cursor-thickness = 50%
+mouse-hide-while-typing = true
