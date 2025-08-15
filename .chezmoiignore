@@ -1,10 +1,2 @@
-# General file patterns
-.DS_Store
 README.md
-*.log
-
-# Plugins
-~/.config/tmux/plugins/
-
-
-
+.DS_Store
